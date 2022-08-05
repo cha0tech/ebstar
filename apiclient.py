@@ -42,7 +42,9 @@ class ApiClient:
 
     def wait_for_new_cookie(self):
         print('Waiting for new cookie file ... ', end='')
-        while not self._is_cookie_file_modified() or self._is_cookie_file_empty():
+        while not self._is_cookie_file_modified():
+            time.sleep(1)
+        while self._is_cookie_file_empty():
             time.sleep(1)
         self._read_cookie()
         print('updated.')
