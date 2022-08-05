@@ -51,14 +51,13 @@ def main(origins, destinations, start_date, end_date):
     routes = route_combinations(origins, destinations, dates)
     routes = list(routes)
     random.shuffle(routes)
-    processed = 0
     while len(routes) > 0:
         route = routes[-1]
         if storage.has_valid(route):
             routes.pop()
             continue
 
-        print(f'{route} ({processed+1}/{len(routes)})', end=' ')
+        print(f'{route} ({len(routes)} routes left)', end=' ')
         try:
             res = client.send_request(route)
         except KeyboardInterrupt:
@@ -69,7 +68,6 @@ def main(origins, destinations, start_date, end_date):
         if res.is_valid:
             storage.add(res)
             routes.pop()
-            processed += 1
             print(f'{int(res.response.elapsed.total_seconds()*1000)} ms ✓')
         elif res.is_cookie_expired:
             client.wait_for_new_cookie()
