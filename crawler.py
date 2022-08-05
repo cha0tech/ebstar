@@ -4,6 +4,7 @@ import click
 import datetime
 import itertools
 import random
+import time
 
 from apiclient import ApiClient
 from datatypes import Route
@@ -74,7 +75,9 @@ def main(origins, destinations, start_date, end_date):
             client.check_status()
         else:
             print('✗')
-            break
+            print(res.response.status_code, res.application_errors)
+            routes.pop()
+            time.sleep(10)
 
 
 if __name__ == '__main__':
