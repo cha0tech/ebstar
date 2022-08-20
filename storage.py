@@ -38,13 +38,13 @@ class Storage(object):
         count = next(cursor)[0]
         return count > 0
 
-    def load_freshest(self):
+    def load_freshest(self, allow_stale=False):
         cur = self.con_.cursor()
         flights = {}
         for row in cur.execute('SELECT query_result FROM results'):
             res = pickle.loads(row[0])
             age = datetime.datetime.now() - res.timestamp
-            if age >= datetime.timedelta(hours=24):
+            if not allow_stale and age >= datetime.timedelta(hours=24):
                 continue
 
             if res.route not in flights:
