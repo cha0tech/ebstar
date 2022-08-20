@@ -12,6 +12,10 @@ and a Jupyter notebook that allows you to **query** the crawled results.
 > **Note**
 > Consider using a VPN when running the crawler.
 
+Here's a video showing how to install and start the crawler:
+https://vimeo.com/741490078. If reading is your preferred method of absorbing
+information, read on below.
+
 ### Starting the cookie server
 
 Start the cookie server. This is a server that will receive the most recent
