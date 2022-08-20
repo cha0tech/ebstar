@@ -9,6 +9,9 @@ and a Jupyter notebook that allows you to **query** the crawled results.
 
 ## Crawling
 
+> **Note**
+> Consider using a VPN when running the crawler.
+
 ### Starting the cookie server
 
 Start the cookie server. This is a server that will receive the most recent
