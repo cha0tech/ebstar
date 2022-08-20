@@ -1,0 +1,11 @@
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:103.0) Gecko/20100101 Firefox/103.0
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+DNT: 1
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+Pragma: no-cache
+Cache-Control: no-cache
+TE: trailers
