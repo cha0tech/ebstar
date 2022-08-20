@@ -72,3 +72,5 @@ being classified as a bot.
 
 Start a Jupyter notebook server and then open [Query.ipynb](Query.ipynb), which
 shows an example of how to query the results.
+
+Here's a quick video showing some sample queries: https://vimeo.com/741494155
