@@ -34,16 +34,18 @@ When the page has loaded, run the following code in the tabs' developer console:
 window.setInterval(() => { new Image().src = 'http://localhost:5000/?cookie=' + encodeURIComponent(document.cookie); }, 5000);
 ```
 
-This will periodically send the cookies from your tab to the cookie server,
-thereby allowing to circumvent SAS' bot protection. So make sure to keep that tab open.
+This will periodically send the cookie from your tab to the cookie server,
+thereby ensuring that your traffic doesn't get classified as originating from
+a bot.
 
 ### Start crawling
 
-Now you're ready to start crawling. Say you want to go from OSL or CPH to SFO or LAX in March 2023.
+Now you're ready to start crawling. Say you want to go from CPH to SIN, TYO
+or KUL in February 2023.
 
 ```
-./crawler.py --origins=CPH --destinations=SIN,TYO,KUL --start=20230201 --end=20230228
-IP address: 82.180.144.19
+$ python3 ./crawler.py --origins=CPH --destinations=SIN,TYO,KUL --start=20230201 --end=20230228
+IP address: XXX.XXX.XXX.XXX
 Sending sample request ... success
 Route(iata_from='CPH', iata_to='TYO', date='20230216') (168 routes left) 8220 ms ✓
 Route(iata_from='CPH', iata_to='SIN', date='20230223') (167 routes left) 5583 ms ✓
@@ -60,7 +62,7 @@ The results are written to a SQLite database called `flights.db`.
 If the crawler is too slow for your tastes, you can simply start another
 crawler with the same parameters. In my experience, running four crawlers at
 the same time is fine. Running more than four might result in your traffic
-being identified as a bot.
+being classified as a bot.
 
 ## Querying the results
 
